@@ -1,0 +1,76 @@
+
+public class Magic8ball{
+
+public static int getNum(){
+    int min = 0; // minimum value of random num
+    int max = 20; // maximum value of random num
+    int num = 0; // stores random number
+    num = min +(int)(Math.random()* ((max - min)+ 1)); // generates random number
+    return num;
+    
+
+}
+
+public static String shakeBall(){
+	int num = getNum();
+	switch(num) {
+	case 0:
+		return "As I see it, yes.";
+	case 1:
+		return "Ask again later";
+	case 2:
+		return "Better not to tell you now";
+	case 3:
+		return "Cannot predict now";
+	case 4:
+		return "Concentrate and ask again";
+	case 5:
+		return "Don't count on it.";
+	case 6:
+		return "It is certain.";
+	case 7:
+		return "It is decidedly so.";
+	case 8:
+		return "Most likely.";
+	case 9:
+		return "My reply is no.";
+	case 10:
+		return "My sources say no.";
+	case 11:
+		return "Outlook not so good.";
+	case 12:
+		return "Outlook good.";
+	case 13:
+		return "Reply hazy, try again.";
+	case 14:
+		return "Signs point to yes.";
+	case 15:
+		return "Very doubtful.";
+	case 16:
+		return "Without a doubt.";
+	case 17:
+		return "Yes.";
+	case 18:
+		return "Yes - definitely.";
+	case 19:
+		return "You may rely on it.";
+	}
+	
+	
+}
+
+
+
+
+
+
+public static void main(String[] args){
+  
+	System.out.println("Shake the magic 8 ball to see your fourtune!");
+	System.out.println(" ");
+	shakeBall();
+
+ 
+}
+
+}
