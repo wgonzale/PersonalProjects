@@ -1,15 +1,13 @@
 
-public class Magic8ball{
+public class Magic8Ball {
 
 public static int getNum(){
-    int min = 0; // minimum value of random num
-    int max = 20; // maximum value of random num
-    int num = 0; // stores random number
-    num = min +(int)(Math.random()* ((max - min)+ 1)); // generates random number
-    return num;
-    
-
-}
+	int min = 0; // minimum value of random num
+	int max = 19; // maximum value of random num
+	int num = 0; // stores random number
+	num = min +(int)(Math.random()* ((max - min)+ 1)); // generates random number
+	return num;
+	}
 
 public static String shakeBall(){
 	int num = getNum();
@@ -55,22 +53,15 @@ public static String shakeBall(){
 	case 19:
 		return "You may rely on it.";
 	}
-	
-	
+return "Future predicted!";
 }
-
-
-
 
 
 
 public static void main(String[] args){
   
-	System.out.println("Shake the magic 8 ball to see your fourtune!");
-	System.out.println(" ");
-	shakeBall();
+	System.out.println("The magic 8 ball has spoken, it says: "+shakeBall());
 
  
 }
-
 }
