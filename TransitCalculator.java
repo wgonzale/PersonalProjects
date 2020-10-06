@@ -24,7 +24,7 @@ public class TransitCalculator {
 	}
 	
 	public double payPerRidePrice() { 
-		double price = PAYPERRIDE * numRides;
+		double price = (PAYPERRIDE * numRides)/numRides;
 		return price;
 		
 	}
@@ -78,7 +78,7 @@ public class TransitCalculator {
 	public static void main(String[] args) {
 		
 		TransitCalculator one = new TransitCalculator(29,100);
-		TransitCalculator two = new TransitCalculator(1,11);
+		TransitCalculator two = new TransitCalculator(1,13);
 		TransitCalculator three = new TransitCalculator(1,5);
 		System.out.println(one.getBestFare());
 		System.out.println(two.getBestFare());
