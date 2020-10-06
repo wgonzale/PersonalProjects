@@ -12,12 +12,12 @@ public class TransitCalculator {
 		 numRides = rideNum;
 	}
 	
-	public double unlimited7Price() {
+	public double unlimited7Price() { //something seems to be wrong with this method
 		if(numDays<=7) {
 			return SEVENDAYPASS /numRides;
 		}
 		else {
-		int passQuant = Math.round(numDays / 7);
+		double passQuant = Math.ceil(numDays / 7); 
 		double price = SEVENDAYPASS * passQuant;
 		return price / numRides;
 		}
@@ -34,7 +34,7 @@ public class TransitCalculator {
 			return THIRTYDAYPASS / numRides;
 		}
 		else {
-			int passQuant = Math.round(numDays/30);
+			double passQuant = Math.ceil(numDays/30);
 			double price= THIRTYDAYPASS * passQuant;
 			return price / numRides;
 		}
@@ -56,6 +56,7 @@ public class TransitCalculator {
 		for(int i=0;i<getRidePrices().length;i++){
 				if(bestFare>getRidePrices()[i]) {
 					bestFare = getRidePrices()[i];
+					
 				}
 			
 			}
@@ -76,9 +77,9 @@ public class TransitCalculator {
 	
 	public static void main(String[] args) {
 		
-		TransitCalculator one = new TransitCalculator(19,20);
-		TransitCalculator two = new TransitCalculator(1,5);
-		TransitCalculator three = new TransitCalculator(7,32);
+		TransitCalculator one = new TransitCalculator(29,100);
+		TransitCalculator two = new TransitCalculator(1,11);
+		TransitCalculator three = new TransitCalculator(1,5);
 		System.out.println(one.getBestFare());
 		System.out.println(two.getBestFare());
 		System.out.println(three.getBestFare());
