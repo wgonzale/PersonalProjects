@@ -23,10 +23,9 @@ public class TransitCalculator {
 		}
 	}
 	
-	public double payPerRidePrice() { //need help on this method
-		double price = PAYPERRIDE *numRides;
-		double pricePerRide = price/numDays;
-		return pricePerRide;
+	public double payPerRidePrice() { 
+		double price = PAYPERRIDE * numRides;
+		return price;
 		
 	}
 	
@@ -55,7 +54,7 @@ public class TransitCalculator {
 		double bestFare = getRidePrices()[0];
 		
 		for(int i=0;i<getRidePrices().length;i++){
-				if(bestFare<=getRidePrices()[i]) {
+				if(bestFare>getRidePrices()[i]) {
 					bestFare = getRidePrices()[i];
 				}
 			
@@ -77,7 +76,7 @@ public class TransitCalculator {
 	
 	public static void main(String[] args) {
 		
-		TransitCalculator one = new TransitCalculator(29,76);
+		TransitCalculator one = new TransitCalculator(19,20);
 		TransitCalculator two = new TransitCalculator(1,5);
 		TransitCalculator three = new TransitCalculator(7,32);
 		System.out.println(one.getBestFare());
