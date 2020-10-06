@@ -13,16 +13,38 @@ public class TransitCalculator {
 	}
 	
 	public double unlimited7Price() {
+		if(numDays<=7) {
+			return SEVENDAYPASS /numRides;
+		}
+		else {
 		int passQuant = Math.round(numDays / 7);
 		double price = SEVENDAYPASS * passQuant;
 		return price / numRides;
+		}
+	}
+	
+	public double payPerRidePrice() {
+		if(numDays >= 7)
+		return PAYPERRIDE * numRides;
+	}
+	
+	public double thirtyDayPassPrice() {
+		if(numDays<=30) {
+			return THIRTYDAYPASS / numRides;
+		}
+		else {
+			int passQuant = Math.round(numDays/30);
+			double price= THIRTYDAYPASS * passQuant;
+			return price / numRides;
+		}
+		
 	}
 	
 	public double[] getRidePrices() {
 		double[] fares = new double[3];
-		fares[0] = PAYPERRIDE * numRides;
+		fares[0] = payPerRidePrice();
 		fares[1] = unlimited7Price();
-		fares[2] = THIRTYDAYPASS / numRides;
+		fares[2] = thirtyDayPassPrice();
 		return fares;
 	}
 	
@@ -31,25 +53,15 @@ public class TransitCalculator {
 		double bestFare = getRidePrices()[0];
 		
 		for(int i=0;i<getRidePrices().length;i++){
-			{
 				if(bestFare<getRidePrices()[i]) {
 					bestFare = getRidePrices()[i];
 				}
-			}
-		}
-		if(bestFare == getRidePrices()[0]) {
-			return "You should get the Pay-per-ride option at: $"+Math.round(bestFare*100.0)/100+" per ride";
-		}
-		else if(bestFare == getRidePrices()[1]) {
-			return "You should get the 7-day unlimited ride option at: $"+Math.round(bestFare*100.0)/100+" per ride";
-		}
-		else if(bestFare == getRidePrices()[2]) {
-			return "You should get the 30-day unlimited ride option at: $" +Math.round(bestFare*100.0)/100+" per ride";
-		}
-		else {
-			return "Oops something went wrong here";
-		}
+			
+			}		
+		return ("Best fare is: "+bestFare);
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		
@@ -62,3 +74,4 @@ public class TransitCalculator {
 		
 
 	}
+}
