@@ -23,9 +23,11 @@ public class TransitCalculator {
 		}
 	}
 	
-	public double payPerRidePrice() {
-		if(numDays >= 7)
-		return PAYPERRIDE * numRides;
+	public double payPerRidePrice() { //need help on this method
+		double price = PAYPERRIDE *numRides;
+		double pricePerRide = price/numDays;
+		return pricePerRide;
+		
 	}
 	
 	public double thirtyDayPassPrice() {
@@ -53,12 +55,22 @@ public class TransitCalculator {
 		double bestFare = getRidePrices()[0];
 		
 		for(int i=0;i<getRidePrices().length;i++){
-				if(bestFare<getRidePrices()[i]) {
+				if(bestFare<=getRidePrices()[i]) {
 					bestFare = getRidePrices()[i];
 				}
 			
-			}		
-		return ("Best fare is: "+bestFare);
+			}
+		if(bestFare == getRidePrices()[0]) {
+			return "Your best option is to Pay-per ride at: "+bestFare+" per ticket";
+		}
+		else if(bestFare == getRidePrices()[1]) {
+			return "Your best option is to buy the unlimted 7 day pass at :"+bestFare+" per ticket";
+		}
+		else if(bestFare == getRidePrices()[2]) {
+			return "Your best option is to buy the unlimted 30 day pass at :"+bestFare+" per ticket";
+		}
+		else
+			return "Whoops! Error!";
 	}
 	
 	
